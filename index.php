@@ -1,4 +1,4 @@
-<?php 
+<?php
 include("functions.php");
 ?>
 <!DOCTYPE html>
@@ -16,10 +16,12 @@ include("functions.php");
   </head>
   <body>
 	  <header></header>
+
 	<div id="content">
+    <h1>Find sexy singles in your area</h1>
   	<!-- body code goes here -->
 	  <nav>
-		
+
 	  </nav>
 	<div class="col-3">
 		<fieldset>
@@ -35,7 +37,7 @@ include("functions.php");
 					<h3><?php echo $row['name'];?> </h3>
 					<h3> <?php echo $row['price'] . "€";?> </h3>
 					<p><a href="info.php?id=<?php echo $row['id'];?>" title="info">Read more</a></p>
-				<?php	
+				<?php
 				}
 				?>
 
@@ -44,10 +46,10 @@ include("functions.php");
 	</div>
 	</div>
 	  <footer></footer>
-	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 	<script src="js/jquery-3.2.1.min.js"></script>
 	<!-- Include all compiled plugins (below), or include individual files as needed -->
-	<script src="js/popper.min.js"></script> 
+	<script src="js/popper.min.js"></script>
 	<script src="js/bootstrap-4.0.0.js"></script>
   </body>
 </html>
