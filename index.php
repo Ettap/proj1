@@ -21,33 +21,27 @@ include("functions.php");
 	  <nav>
 		
 	  </nav>
-	<div class="push_1 grid_4">
-<fieldset>
-<legend class="contact-font">Keyboards</legend>
-	<div class=' produktcontainer white'>
-    <?php
-$q_products = "SELECT * FROM users WHERE username";
+	<div class="col-3">
+		<fieldset>
+			<div class=' produktcontainer white'>
+				<?php
+					$q_products = "SELECT * FROM users WHERE username";
 
-$r_products = mysqli_query($link, $q_products);
+					$r_products = mysqli_query($link, $q_products);
 
-while($row = mysqli_fetch_array($r_products)) {
-?>
+					while($row = mysqli_fetch_array($r_products)) {
+				?>
+					<img src="bilder/products/<?php echo $row['img_url']; ?>"alt="<?php echo $row['img_desc'];?>" width="220px" height="110px">
+					<h3><?php echo $row['name'];?> </h3>
+					<h3> <?php echo $row['price'] . "€";?> </h3>
+					<p><a href="info.php?id=<?php echo $row['id'];?>" title="info">Read more</a></p>
+				<?php	
+				}
+				?>
 
-<img src="bilder/products/<?php echo $row['img_url']; ?>"
-alt="<?php echo $row['img_desc'];?>" width="220px" height="110px">
-
-<h3><?php echo $row['name'];?> </h3>
-
-<h3> <?php echo $row['price'] . "€";?> </h3>
-<p><a href="info.php?id=<?php echo $row['id'];?>" title="info">
-Read more</a></p>
-<?php	
-}
-?>
-
+			</div>
+		</fieldset>
 	</div>
-</div>
-</fieldset>
 	</div>
 	  <footer></footer>
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
