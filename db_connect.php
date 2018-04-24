@@ -1,6 +1,6 @@
 ﻿<?php
 $dbhost = "localhost";
-$dbuser = "datingsiteAdmin";
+$dbuser = "datingSiteAdmin";
 $dbpass = "datingpass";
 $db = "datingSite";
 
