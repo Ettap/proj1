@@ -22,7 +22,7 @@ $password = $_POST['password'];
 	
 	//Skyddar data
 	$username = mysqli_real_escape_string($link, $username);
-	$password = md5($password);
+	$password = password_hash($password);
 	
 	//Jämför om användaren och lösenord finns i databasen
 	$q_select = "SELECT username, password FROM datingSite 

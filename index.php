@@ -1,3 +1,6 @@
+<?php 
+include("functions.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -12,10 +15,41 @@
 
   </head>
   <body>
+	  <header></header>
+	<div id="content">
   	<!-- body code goes here -->
 	  <nav>
-
+		
 	  </nav>
+	<div class="push_1 grid_4">
+<fieldset>
+<legend class="contact-font">Keyboards</legend>
+	<div class=' produktcontainer white'>
+    <?php
+$q_products = "SELECT * FROM users WHERE username";
+
+$r_products = mysqli_query($link, $q_products);
+
+while($row = mysqli_fetch_array($r_products)) {
+?>
+
+<img src="bilder/products/<?php echo $row['img_url']; ?>"
+alt="<?php echo $row['img_desc'];?>" width="220px" height="110px">
+
+<h3><?php echo $row['name'];?> </h3>
+
+<h3> <?php echo $row['price'] . "€";?> </h3>
+<p><a href="info.php?id=<?php echo $row['id'];?>" title="info">
+Read more</a></p>
+<?php	
+}
+?>
+
+	</div>
+</div>
+</fieldset>
+	</div>
+	  <footer></footer>
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
 	<script src="js/jquery-3.2.1.min.js"></script>
 	<!-- Include all compiled plugins (below), or include individual files as needed -->
