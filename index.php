@@ -4,18 +4,19 @@
     <meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Untitled Document</title>
-    <!-- Bootstrap -->
+    <title>Dating site Project1</title>
+	 <!--Desing css all changes made in here -->
+	<link href="css/design.css" rel="stylesheet">
+    <!-- Bootstrap ignore this -->
 	<link href="css/bootstrap-4.0.0.css" rel="stylesheet">
-	
+
   </head>
   <body>
   	<!-- body code goes here -->
-
-
+	
+	  <nav>
 	  
-	  
-	  
+	  </nav>
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
 	<script src="js/jquery-3.2.1.min.js"></script>
 	<!-- Include all compiled plugins (below), or include individual files as needed -->
