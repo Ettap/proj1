@@ -19,21 +19,21 @@ include("functions.php");
 	<div id="content">
   	<!-- body code goes here -->
 	  <nav>
-		haefögihasödfghaösdg
+		
 	  </nav>
+		<a href="sign_up_page.php">signup page WIP here</a>
 	<div class="col-3">
 		<fieldset>
-			<div class=' produktcontainer white'>
+			<div class=' peoplecontainer whitebg'>
 				<?php
-					$q_products = "SELECT * FROM users WHERE username";
+					$q_users = "SELECT * FROM users WHERE username";
 
-					$r_products = mysqli_query($link, $q_products);
+					$r_people = mysqli_query($link, $q_users);
 
-					while($row = mysqli_fetch_array($r_products)) {
+					while($row = mysqli_fetch_array($r_people)) {
 				?>
-					<img src="bilder/products/<?php echo $row['img_url']; ?>"alt="<?php echo $row['img_desc'];?>" width="220px" height="110px">
-					<h3><?php echo $row['name'];?> </h3>
-					<h3> <?php echo $row['price'] . "€";?> </h3>
+					<!-- <img src="bilder/products/<?php echo $row['img_url']; ?>"alt="<?php echo $row['img_desc'];?>" width="220px" height="110px"> -->
+					<h3><?php echo $row['username'];?> </h3>
 					<p><a href="info.php?id=<?php echo $row['id'];?>" title="info">Read more</a></p>
 				<?php	
 				}
