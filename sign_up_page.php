@@ -20,16 +20,61 @@ include("functions.php");
 			<fieldset>
 				<form class="signup">
 					<label for="username">Username</label></br>
-					<input type="text" name="usernmae" placeholder="Username"></input></br>
+					<input type="text" name="usernmae" placeholder="Username" required></br>
 					<label for="email">Email</label></br>
-					<input type="email" name="email" placeholder="email@example.com"></input></br>
+					<input type="email" name="email" placeholder="email@example.com" required></br>
 					<label for="postalcode">Postalcode</label></br>
-					<input type="number" name="postalcode" placeholder="postalcode"></input></br>
+					<input type="number" name="postalcode" placeholder="postalcode" required></br>
 					<label for="password">Password</label></br>
-					<input type="password" name="pass" placeholder="password"></input></br>
-					<input type="password" name="passCheck" placeholder="password again"></input></br>
+					<input type="password" name="passwordS" placeholder="password" required></br>
+					<input type="password" name="confirm_passwordS" placeholder="password again" required></br>
+                    <input type="submit" name="signup" value="Signup" onClick="validatePassword">
 				</form>
 			</fieldset>
+<script>
+var password = document.getElementById("passwordS") , confirm_password = document.getElementById("confirm_passwordS");
+function checkUser(){
+
+    if(username.value != <?php mysqli_query('SELECT FROM users WHERE $name') ?>){
+       username.setCustomValidity('Username is taken!');
+       }else{
+       username.setCustomValidity('');   
+       }
+}
+function validatePassword(){
+  if(password.value != confirm_password.value) {
+    confirm_password.setCustomValidity("Passwords Don't Match");
+  } else {
+    confirm_password.setCustomValidity('');
+<?php
+if(isset($_POST['signup'])){
+	$name = $_POST['username'];
+    $email = $_POST['email'];
+    $password1 = $_POST[password_hash(passwordS)];
+    
+$q_user_insert= "INSERT INTO `datingsait`.`users` 
+(`id`, `name`, `email`, `password` , `img_desc`, `price`, `prod_group`
+, `link`)
+ VALUES 
+(NULL, '$name', '$email', '$passwordS', '$img_desc1', '$prod_price1', '$group1', '$link2')";
+			 //echo $q_user_insert;
+$r_user_insert = mysqli_query($link, $q_user_insert);
+	
+	if(!$r_user_insert){
+		echo "<p>The insert failed <br>" .
+		mysqli_error($link). "</p>";
+	} else {
+		echo "<p>A new user has ben added!</p>";	
+	}
+}
+?>
+  }
+}
+
+password.onchange = validatePassword;
+confirm_password.onkeyup = validatePassword;
+</script>
+
 		</div>
 	</body>
 </html>

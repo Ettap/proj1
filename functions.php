@@ -20,11 +20,11 @@ $password = $_POST['password'];
 	} else {
 	//kör login-skript
 	
-	//Skyddar data
+	//Protects data
 	$username = mysqli_real_escape_string($link, $username);
 	$password = password_hash($password);
 	
-	//Jämför om användaren och lösenord finns i databasen
+	//checks if password and username match database
 	$q_select = "SELECT username, password FROM datingSite 
 				WHERE username='$username'
 				AND
@@ -37,7 +37,7 @@ $password = $_POST['password'];
 	//Registers the login session
 	$_SESSION['user'] = $username;
 	
-	//Styr användaren till index.php
+	//Sends user to index page
 	header('Location: index.php');
 	} else {
 		$msg = "Wrong usewrname or password";
