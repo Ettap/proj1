@@ -18,13 +18,15 @@ include("functions.php");
 	<body>
 		<div id="signup" class="border-signup col-6">
 			<fieldset>
-				<form class="signup" method="post" action="<?php echo $_SERVER['PHP_SELF']?>">
+				<form class="signup" method="post">
 					<label for="username">Username</label></br>
-						<input type="username" name="usernmae" placeholder="Username" required></br>
+						<input type="name" name="username" placeholder="Username" required></br>
+						<input type="radio" name="gender1" value="1" class="gender"> Male<br>
+						<input type="radio" name="gender1" value="2" class="gender"> Female<br>
 					<label for="email">Email</label></br>
 						<input type="email" name="email" placeholder="email@example.com" required></br>
 					<label for="postalcode">Postalcode</label></br>
-						<input type="number" name="postalcode" placeholder="postalcode" required></br>
+						<input type="number" name="postnum" placeholder="postalcode" required></br>
 					<label for="password">Password</label></br>
 						<input type="password" name="passwordS" placeholder="password" required></br>
 						<input type="password" name="confirm_passwordS" placeholder="password again" required></br>
@@ -35,19 +37,20 @@ include("functions.php");
 					<label for="currency">Currency</label></br>
 					!insert currency here! </br>
 					<label>Seeking</label></br>
-						 <input type="radio" name="gender" value="1" class="gender"> Male<br>
-						 <input type="radio" name="gender" value="2" class="gender"> Female<br>
-						 <input type="radio" name="gender" value="3" class="gender"> both<br>
+						 <input type="radio" name="gender2" value="1" class="gender"> Male</br>
+						 <input type="radio" name="gender2" value="2" class="gender"> Female</br>
+						 <input type="radio" name="gender2" value="3" class="gender"> both</br>
 
 
-                    <input type="submit" name="signup" value="Signup" onClick="validatePassword">
+                    <input type="submit" name="insert" value="Signup" onClick="validatePassword">
 				</form>
 			</fieldset>
 <script>
-	var password = document.getElementById("passwordS") , confirm_password = document.getElementById("confirm_passwordS");
+	var password = document.getElementById("passwordS") , 
+	confirm_password = document.getElementById("confirm_passwordS");
 	function checkUser(){
 
-		if(username.value != <?php mysqli_query('SELECT FROM users WHERE $name') ?>){
+		if(username.value = <?php mysqli_query('SELECT FROM users WHERE $username') ;?>){
 		   username.setCustomValidity("Username is taken!");
 		   }else{
 		   username.setCustomValidity('');   
@@ -58,18 +61,32 @@ include("functions.php");
 		confirm_password.setCustomValidity("Passwords Don't Match");
 	  } else {
 		confirm_password.setCustomValidity('');
-		<?php
-			if(isset($_POST['signup'])){
-				$name = $_POST['username'];
+		  $.ajax( { })
+	  }
+	}
+
+	password.onchange = validatePassword;
+	confirm_password.onkeyup = validatePassword;
+</script>
+<?php
+			if(isset($_POST['insert_new'])){
+				$username = $_POST['username'];
 				$email = $_POST['email'];
 				$password1 = password_hash($_POST['passwordS'], PASSWORD_DEFAULT);
+				$postnum = $_POST['postnum'];
+				$gender = $_POST['gender1.value'];
+				$seeking = $_POST['gender2.value'];
+				$income = $_POST['income'];
+				$age = $_POST['age'];
 				
-			$q_user_insert= "INSERT INTO `datingsait`.`users` 
-			(`id`, `name`, `email`, `password` , `img_desc`, `price`, `prod_group`
-			, `link`)
+				
+			$q_user_insert= "INSERT INTO `datingsite`.`users` 
+			(`userID`, `username`, `email`, `password` ,´postnum´ , `pay`, `currency`, `seeking`
+			, `gender` , `age`)
 			 VALUES 
-			(NULL, '$name', '$email', '$password1', '$img_desc1', '$prod_price1', '$group1', '$link2')";
-						 //echo $q_user_insert;
+			(NULL, '$username', '$email', '$password1', '$postnum' ,'$income' , 'NULL' , '$seeking' 
+			,'$gender', '$age')";
+						 echo $q_user_insert;
 			$r_user_insert = mysqli_query($link, $q_user_insert);
 
 				if(!$r_user_insert){
@@ -80,13 +97,6 @@ include("functions.php");
 				}
 			}
 		?>
-	  }
-	}
-
-	password.onchange = validatePassword;
-	confirm_password.onkeyup = validatePassword;
-</script>
-
 		</div>
 	</body>
 </html>
