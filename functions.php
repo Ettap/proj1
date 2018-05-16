@@ -20,11 +20,11 @@ $password = $_POST['password'];
 	} else {
 	//kör login-skript
 	
-	//Skyddar data
+	//Protects data
 	$username = mysqli_real_escape_string($link, $username);
 	$password = password_hash($password);
 	
-	//Jämför om användaren och lösenord finns i databasen
+	//checks if password and username match database
 	$q_select = "SELECT username, password FROM datingSite 
 				WHERE username='$username'
 				AND
@@ -37,7 +37,7 @@ $password = $_POST['password'];
 	//Registers the login session
 	$_SESSION['user'] = $username;
 	
-	//Styr användaren till index.php
+	//Sends user to index page
 	header('Location: index.php');
 	} else {
 		$msg = "Wrong usewrname or password";
@@ -46,6 +46,38 @@ $password = $_POST['password'];
 	}
 	
 }//end login script
+
+//signup script
+
+if(isset($_POST['insert_new'])) {
+    $username = $_POST['username'];
+    $email = $_POST['email'];
+    $password1 = password_hash($_POST['passwordS'], PASSWORD_DEFAULT);
+    $postnum = $_POST['postnum'];
+    $gender = $_POST['gender1'];
+    $seeking = $_POST['gender2'];
+    $income = $_POST['income'];
+    $age = $_POST['Uage'];
+    $currency = $_POST['currency'];
+
+
+$q_user_insert= "INSERT INTO `users`
+(`userID`, `username`, `age`, `gender`, `password`, `email`, `postnum`, `description`, `income`, `currency`, `seeking`)
+VALUES 
+('NULL', '$username', '$age','$gender', '$password1', '$email', '$postnum', '','$income' , '$currency', '$seeking')";
+     
+
+echo $q_user_insert;
+$r_user_insert = mysqli_query($link, $q_user_insert);
+
+    if(!$r_user_insert){
+        echo "<p>The insert failed <br>" .
+        mysqli_error($link). "</p>";
+    } else {
+        echo "<p>A new user has ben added!</p>";	
+    }
+}//end of signup
+
 
 //Logout, delete session
 
