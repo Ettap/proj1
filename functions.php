@@ -47,6 +47,38 @@ $password = $_POST['password'];
 	
 }//end login script
 
+//signup script
+
+if(isset($_POST['insert_new'])) {
+    $username = $_POST['username'];
+    $email = $_POST['email'];
+    $password1 = password_hash($_POST['passwordS'], PASSWORD_DEFAULT);
+    $postnum = $_POST['postnum'];
+    $gender = $_POST['gender1'];
+    $seeking = $_POST['gender2'];
+    $income = $_POST['income'];
+    $age = $_POST['Uage'];
+    $currency = $_POST['currency'];
+
+
+$q_user_insert= "INSERT INTO `users`
+(`userID`, `username`, `age`, `gender`, `password`, `email`, `postnum`, `description`, `income`, `currency`, `seeking`)
+VALUES 
+('NULL', '$username', '$age','$gender', '$password1', '$email', '$postnum', '','$income' , '$currency', '$seeking')";
+     
+
+echo $q_user_insert;
+$r_user_insert = mysqli_query($link, $q_user_insert);
+
+    if(!$r_user_insert){
+        echo "<p>The insert failed <br>" .
+        mysqli_error($link). "</p>";
+    } else {
+        echo "<p>A new user has ben added!</p>";	
+    }
+}//end of signup
+
+
 //Logout, delete session
 
 if(isset($_GET['logout'])){
