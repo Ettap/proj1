@@ -1,4 +1,4 @@
-<?php 
+<?php
 include("functions.php");
 include('db_connect.php');
 ?>
@@ -17,10 +17,12 @@ include('db_connect.php');
   </head>
   <body>
 	  <header></header>
+
 	<div id="content">
+    <h1>Find sexy singles in your area</h1>
   	<!-- body code goes here -->
 	  <nav>
-		
+
 	  </nav>
 		<a href="sign_up_page.php">signup page WIP here</a>
 	<div class="col-3">
@@ -36,7 +38,7 @@ include('db_connect.php');
 					<!-- <img src="bilder/products/<?php echo $row['img_url']; ?>"alt="<?php echo $row['img_desc'];?>" width="220px" height="110px"> -->
 					<h3><?php echo $row['username'];?> </h3>
 					<p><a href="info.php?id=<?php echo $row['id'];?>" title="info">Read more</a></p>
-				<?php	
+				<?php
 				}
 				?>
 
@@ -45,10 +47,10 @@ include('db_connect.php');
 	</div>
 	</div>
 	  <footer></footer>
-	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 	<script src="js/jquery-3.2.1.min.js"></script>
 	<!-- Include all compiled plugins (below), or include individual files as needed -->
-	<script src="js/popper.min.js"></script> 
+	<script src="js/popper.min.js"></script>
 	<script src="js/bootstrap-4.0.0.js"></script>
   </body>
 </html>
