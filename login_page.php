@@ -15,6 +15,9 @@ include("functions.php");
   </head>
 
 	<body>
+
+    <p><a href='index.php' title='main'>Main</a></p>
+
 		<div id="login" class="border-signup col-6">
 			<fieldset>
 

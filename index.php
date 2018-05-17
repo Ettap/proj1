@@ -22,24 +22,36 @@ include('db_connect.php');
     <h1>Find sexy singles in your area</h1>
   	<!-- body code goes here -->
 	  <nav>
-
+      <a href="login_page.php">Login page</a><br>
+      <a href="sign_up_page.php">signup page WIP here</a><br>
+      <a href="info.php" title='info'>View list of all profiles here</a><br>
+      <a href='info.php?page=1' title='info'>View table of profiles (better ui)</a>
 	  </nav>
-		<a href="sign_up_page.php">signup page WIP here</a>
-	<div class="col-3">
+
+
+  <div class="col-3">
+
+    <?php
+
+            if(isset($_GET['login'])){
+              include ("login_page.php");
+            } else {
+    ?>
+
 		<fieldset>
 			<div class=' peoplecontainer whitebg'>
 				<?php
-					$q_users = "SELECT * FROM users WHERE username";
+					$q_users = "SELECT * FROM users";
 
 					$r_people = mysqli_query($link, $q_users);
 
 					while($row = mysqli_fetch_array($r_people)) {
 				?>
-					<!-- <img src="bilder/products/<?php echo $row['img_url']; ?>"alt="<?php echo $row['img_desc'];?>" width="220px" height="110px"> -->
-					<h3><?php echo $row['username'];?> </h3>
+
+					<h4><?php echo $row['username'];?> </h4>
 					<p><a href="info.php?id=<?php echo $row['id'];?>" title="info">Read more</a></p>
 				<?php
-				}
+      }};
 				?>
 
 			</div>

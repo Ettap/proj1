@@ -1,4 +1,4 @@
-<?php 
+<?php
 include("functions.php");
 ?>
 
@@ -17,6 +17,8 @@ include("functions.php");
   </head>
 
 	<body>
+    <p><a href='index.php' title='main'>Main</a></p>
+
 		<div id="signup" class="border-signup col-6">
 			<fieldset>
 				<form class="signup" method="post" onsubmit="validateUser()">
@@ -42,10 +44,10 @@ include("functions.php");
 						 <input type="radio" name="gender2" value="2" class="gender"> Female</br>
 						 <input type="radio" name="gender2" value="3" class="gender"> both</br>
                     <input type="submit" name="insert_new" value="Signup!">
-            <script>      
+            <script>
                 function validateUser(){
                     console.log("button pressed");
-                    var password = document.getElementById("passwordS") , 
+                    var password = document.getElementById("passwordS") ,
                     confirm_password = document.getElementById("confirm_passwordS"),
                     username = document.getElementById("username");
                         console.log("checking user");
@@ -78,5 +80,5 @@ include("functions.php");
 			</fieldset>
 		</div>
 	</body>
-            
+
 </html>

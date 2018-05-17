@@ -1,4 +1,4 @@
-<?php 
+<?php
 session_start();
 include('db_connect.php');
 //chreate a msg variabel for messages
@@ -12,20 +12,20 @@ $password = $_POST['password'];
 	if(empty($username)) {
 	//if username field is empty
 	$msg = "Username is missing!";
-	
+
 	} else if(empty($password)) {
 	//if pasword field is empty
 	$msg = "Passowrd  is missing!";
-	
+
 	} else {
 	//kör login-skript
-	
+
 	//Protects data
 	$username = mysqli_real_escape_string($link, $username);
-	$password = password_hash($password);
-	
+	$password = password_verify($password, PASSWORD_DEFAULT);
+
 	//checks if password and username match database
-	$q_select = "SELECT username, password FROM datingSite 
+	$q_select = "SELECT username, password FROM users
 				WHERE username='$username'
 				AND
 				password='$password'
@@ -36,15 +36,15 @@ $password = $_POST['password'];
 	if($rows > 0){
 	//Registers the login session
 	$_SESSION['user'] = $username;
-	
+
 	//Sends user to index page
 	header('Location: index.php');
 	} else {
 		$msg = "Wrong usewrname or password";
 	}
-	
+
 	}
-	
+
 }//end login script
 
 //signup script
@@ -63,9 +63,9 @@ if(isset($_POST['insert_new'])) {
 
 $q_user_insert= "INSERT INTO `users`
 (`userID`, `username`, `age`, `gender`, `password`, `email`, `postnum`, `description`, `income`, `currency`, `seeking`)
-VALUES 
+VALUES
 ('NULL', '$username', '$age','$gender', '$password1', '$email', '$postnum', '','$income' , '$currency', '$seeking')";
-     
+
 
 echo $q_user_insert;
 $r_user_insert = mysqli_query($link, $q_user_insert);
@@ -74,7 +74,7 @@ $r_user_insert = mysqli_query($link, $q_user_insert);
         echo "<p>The insert failed <br>" .
         mysqli_error($link). "</p>";
     } else {
-        echo "<p>A new user has ben added!</p>";	
+        echo "<p>A new user has ben added!</p>";
     }
 }//end of signup
 
