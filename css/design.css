@@ -28,9 +28,19 @@ html body {
 	width: auto !important;
 	display: inline-block;
 }
+.profileListing{
+    border: 3px solid #000000;
+    border-radius: 10px;
+    background-color: #1D1D1D;
+}
+.profileListing a {
+    color: #6DCFFF;
+    text-decoration: underline;
+}
 #signup{
 	margin: 10px auto;
 	padding: 20px 0px;
+    text-align: center;
 }
 form{
 	text-align: center;
