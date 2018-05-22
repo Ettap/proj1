@@ -409,7 +409,8 @@ include('db_connect.php');
 				?>
                 <div class="listings col-5">
 					<h4><?php echo $row['username'];?> </h4>
-					<p><a href="info.php?id=<?php echo $row['id'];?>" title="info">Read more</a></p>
+					<p><a href="info.php?id=<?php echo $row['userID'];?>" title="info">Read more</a></p>
+
                 </div>
 				<?php
       }};
