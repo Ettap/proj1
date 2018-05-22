@@ -24,13 +24,18 @@ html body {
 	width: auto !important;
 	display: inline-block;
 }
+
 .listings{
     background-color: #2E2E2E;
     border: solid 2px #000000;
     border-radius: 20px;
     padding: 10px;
     margin: 10px;
-    float: right;
+}
+#listingsAll{
+    border: 1px solid #FFFFFF;
+    border-radius: 20px;
+    margin: 40px 40px 100px;
 }
 #signup{
 	margin: 10px auto;
