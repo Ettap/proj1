@@ -24,6 +24,8 @@ include('db_connect.php');
 	  <nav>
       <a href="login_page.php">Login page</a><br>
       <a href="sign_up_page.php">signup page WIP here</a><br>
+      <a href="info.php" title='info'>View list of all profiles here</a><br>
+      <a href='info.php?page=1' title='info'>View table of profiles (better ui)</a>
 	  </nav>
 
     <div id="convert">
@@ -387,70 +389,35 @@ include('db_connect.php');
 
 </div>
 
+  <div class="col-3">
 
-  <?php
-$q_users = "SELECT * FROM users WHERE userID";
-$r_people = mysqli_query($link, $q_users);
-$results_per_page = 20;
+    <?php
 
+            if(isset($_GET['login'])){
+              include ("login_page.php");
+            } else {
+    ?>
 
-//idea: if specific id is not set, display several profiles
-if(!isset($_GET['page'])){
-  foreach(['id'] as $valueidk){
-    echo "<p>Neither ID nor Page is set! Displaying all:</p>";
+		<fieldset>
+			<div class="listingsAll col-12">
+				<?php
+					$q_users = "SELECT * FROM users";
 
-    while($rowi = mysqli_fetch_array($r_people))
-    {
-        echo $rowi['username'];
-      ?>
-      <p><a href="info.php?id=<?php echo $rowi['userID'];?>" title="info">Read more</a></p>
-      <?php
+					$r_people = mysqli_query($link, $q_users);
 
-}
+					while($row = mysqli_fetch_array($r_people)) {
+				?>
+                <div class="listings col-5">
+					<h4><?php echo $row['username'];?> </h4>
+					<p><a href="info.php?id=<?php echo $row['id'];?>" title="info">Read more</a></p>
+                </div>
+				<?php
+      }};
+				?>
 
-}}
-
-if (isset($_GET["page"])) {
-$page  = $_GET["page"];
-//if (!isset($_GET["page"]) ) {
-//$page=1;
-
-$start_from = ($page-1) * $results_per_page;
-$sqlyyy = "SELECT * FROM users LIMIT $results_per_page OFFSET $start_from";
-$rs_result = mysqli_query($link, $sqlyyy);
-
-$sqlooo = "SELECT COUNT(userID) AS total FROM users";
-$result = mysqli_query($link, $sqlooo);
-//$rowl = $result->fetch_assoc();
-$total_pages = ceil($rowl["total"] / $results_per_page);
-
- while($row > 0) {
- //while($rowi = query($rs_result)) {
-?>
-            <div class="profileListing col-5">
-            <p><?php echo $row["username"]; ?></p>
-            <p><?php echo $row["description"]; ?></p>
-            <p><?php echo $row["age"]; ?></p>
-            <p><?php echo $row["email"]; ?></p>
-            <p><?php echo $row["income"]; ?></p>
-            <p><a href='info.php?id=<?php echo $row['userID'];?>' title='info'>Link</a></p>
-            </div>
-<?php
-
-}
-//gives the table of users a page system
-$sqlooo = "SELECT COUNT(userID) AS total FROM users";
-$result = $link->query($sqlooo);
-//$rowl = $result->fetch_assoc();
-$total_pages = ceil($rowl["total"] / $results_per_page);
-echo "<p>Page: </p>";
-for ($i=1; $i<$total_pages; $i++) {
-   echo "<a href='info.php?page=".$i."'>".$i.', '."</a> ";
-};
-//};
-?>
-</table>
-
+			</div>
+		</fieldset>
+	</div>
 	</div>
 	  <footer></footer>
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

@@ -9,10 +9,6 @@ html body {
 	border-radius: 20;
 	border:2px #909090;
 }
-.whitebg{
-	background-color: white;
-}
-
 
 /* main page css above here*/
 /*sign up page CSS under here */
@@ -28,19 +24,17 @@ html body {
 	width: auto !important;
 	display: inline-block;
 }
-.profileListing{
-    border: 3px solid #000000;
-    border-radius: 10px;
-    background-color: #1D1D1D;
-}
-.profileListing a {
-    color: #6DCFFF;
-    text-decoration: underline;
+.listings{
+    background-color: #2E2E2E;
+    border: solid 2px #000000;
+    border-radius: 20px;
+    padding: 10px;
+    margin: 10px;
+    float: right;
 }
 #signup{
 	margin: 10px auto;
 	padding: 20px 0px;
-    text-align: center;
 }
 form{
 	text-align: center;
