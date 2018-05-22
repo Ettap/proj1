@@ -15,10 +15,17 @@ include("functions.php");
     <!-- Bootstrap ignore this -->
 	<link href="css/bootstrap-4.0.0.css" rel="stylesheet"></link>
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/jquery-3.3.1.min.js"></script>
-	<link href="https://openexchangerates.org/api/latest.json?app_id=3a43b77ceddc4e609181d29cc0ce35f9" type="text/javascript"></link>
-  </head>
+	<!--<link href="https://openexchangerates.org/api/latest.json?app_id=3a43b77ceddc4e609181d29cc0ce35f9"></link>
+-->
+
+</head>
 
 	<body>
+<script>
+$.get('https://openexchangerates.org/api/latest.json', {app_id: '3a43b77ceddc4e609181d29cc0ce35f9'}, function(data) {
+    console.log("1 US Dollar equals " + data.rates.GBP + " British Pounds");
+});
+</script>
     <p><a href='index.php' title='main'>Main</a></p>
 
 		<div id="signup" class="border-signup col-6">
@@ -39,7 +46,7 @@ include("functions.php");
 					<label for="income">Income</label></br>&nbsp;
 						<input type="number" name="income" placeholder="income/year" ></br>
 					<label for="currency">Currency</label></br>
-					<select name="currency">
+					<select name="currency" onChange="optionSelect()">
 <option>AED</option>
 <option>AFN</option>
 <option>ALL</option>
@@ -221,38 +228,11 @@ include("functions.php");
 			 document.getElementById("insertNew").addEventListener("click" ,function(){
 																   validateUser();
 																   });
-                function validateUser(){
-
-                    console.log("button pressed");
-					<?php echo"some idiot hit the button!"; ?>
-                    var password = document.getElementById("passwordS") ,
-                    confirm_password = document.getElementById("confirm_passwordS"),
-                    username = document.getElementById("username");
-                        console.log("checking user");
-                        /*if(username.value = <?php //mysqli_query($link ,'SELECT * FROM users WHERE username') ;?>){
-                            console.log("username is taken");
-							<?php echo("we are at the username shit"); ?>
-                            username.setCustomValidity("Username is taken!");
-                           }else{
-                               console.log("user ok");
-                               username.setCustomValidity('');
-                               console.log("checking passwords");
-                            if(password.value != confirm_password.value) {
-                                confirm_password.setCustomValidity("Passwords Don't Match");
-                                console.log("passwords dont match");
-                                  } else {
-                                    confirm_password.setCustomValidity('');
-                                    console.log("password ok. sending to server");
-                                      $.ajax({
-                                            url: "functions.php",
-                                            data: "insert_new",
-                                        });
-                                  }
-                           }*/
-                }
-                password.onchange = validateUser();
-                confirm_password.onkeyup = validateUser();
+    function validateUser{
+        
+    }
             </script>
+
 		</div>
 	</body>
 

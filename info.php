@@ -15,13 +15,11 @@ include("functions.php");
      <!-- Bootstrap ignore this -->
  	<link href="css/bootstrap-4.0.0.css" rel="stylesheet">
     <link href="">
-    <link href=" http://data.fixer.io/api/latest
-       ? access_key=1429a6c0b58b051ea39e83fc423b5c04"
    </head>
 
  	<body>
+        
 <div id="profilesDisplay">
-
   <p>Search for users</p>
   <form  method="post" action="search.php?go"  id="searchform">
   	      <input  type="text" name="name">
