@@ -19,6 +19,12 @@ include("functions.php");
  	<body>
 <div id="profilesDisplay">
 
+  <p>Search for users</p>
+  <form  method="post" action="search.php?go"  id="searchform">
+  	      <input  type="text" name="name">
+  	      <input  type="submit" name="Seek" value="Search">
+  </form>
+
 
 <?php
 
@@ -62,10 +68,6 @@ elseif(!isset($_GET['id']) && !isset($_GET['page'])){
       <p><a href="info.php?id=<?php echo $rowi['userID'];?>" title="info">Read more</a></p>
       <?php
 
-
-//trying to make table with limited number of results of profiles
-
-
 }
 
 }}
@@ -76,6 +78,8 @@ if (isset($_GET["page"])) {
 $page  = $_GET["page"];
 //if (!isset($_GET["page"]) && !isset($_GET["id"])) {
 //$page=1;
+
+
 
 $start_from = ($page-1) * $results_per_page;
 $sqlyyy = "SELECT * FROM users LIMIT $results_per_page OFFSET $start_from";
