@@ -39,8 +39,7 @@ session_start();
 				</fieldset>
 			</form>
 			<?php } else { ?>
-
-
+	
 			<fieldset>
 				<legend>Logout</legend>
 				<div class="button3">

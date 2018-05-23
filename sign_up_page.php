@@ -34,15 +34,15 @@ $.get('https://openexchangerates.org/api/latest.json', {app_id: '3a43b77ceddc4e6
 						<input type="radio" name="gender1" value="1" class="gender"> Male<br>
 						<input type="radio" name="gender1" value="2" class="gender"> Female<br>
 					<label for="email">Email</label></br>
-						<input type="email" name="email" placeholder="email@example.com" ></br>
+						<input type="email" name="email" placeholder="email@example.com" required ></br>
 						<label for="postalcode">Postalcode</label></br>
-						<input type="number" name="postnum" placeholder="postalcode" ></br>
+						<input type="text" name="postnum" placeholder="postalcode"required ></br>
 					<label for="password">Password</label></br>
-						<input type="password" name="passwordS" placeholder="password" ></br>
-						<input type="password" name="confirm_passwordS" placeholder="password again" ></br>
+						<input type="password" name="passwordS" placeholder="password" required></br>
+						<input type="password" name="confirm_passwordS" placeholder="password again" required ></br>
 					<label for="age">Age</label></br>
 						<input type="number" name="Uage" placeholder="age" ></br>
-					<label for="income">Income</label></br>&nbsp;
+					<label for="income">Income</label></br>
 						<input type="number" name="income" placeholder="income/year" ></br>
 					<label for="currency">Currency</label></br>
 					<select name="currency" onChange="optionSelect()">
