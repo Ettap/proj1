@@ -14,11 +14,12 @@ include("functions.php");
  	<link href="css/design.css" rel="stylesheet">
      <!-- Bootstrap ignore this -->
  	<link href="css/bootstrap-4.0.0.css" rel="stylesheet">
+    <link href="">
    </head>
 
  	<body>
+        
 <div id="profilesDisplay">
-
   <p>Search for users</p>
   <form  method="post" action="search.php?go"  id="searchform">
   	      <input  type="text" name="name">
