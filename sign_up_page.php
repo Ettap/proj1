@@ -14,9 +14,8 @@ include("functions.php");
 	<link href="css/design.css" rel="stylesheet"></link>
     <!-- Bootstrap ignore this -->
 	<link href="css/bootstrap-4.0.0.css" rel="stylesheet"></link>
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/jquery-3.3.1.min.js"></script>
-	<!--<link href="https://openexchangerates.org/api/latest.json?app_id=3a43b77ceddc4e609181d29cc0ce35f9"></link>
--->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<!--<link href="https://openexchangerates.org/api/latest.json?app_id=3a43b77ceddc4e609181d29cc0ce35f9"></link>-->
 
 </head>
 
@@ -228,9 +227,14 @@ $.get('https://openexchangerates.org/api/latest.json', {app_id: '3a43b77ceddc4e6
 			 document.getElementById("insertNew").addEventListener("click" ,function(){
 																   validateUser();
 																   });
-    function validateUser{
-        
-    }
+				function validateUser(){
+					$.ajax({
+				url: 'functions.php',
+				type: 'post',
+				data: 'insert_new',
+				}
+						   );
+				}
             </script>
 
 		</div>

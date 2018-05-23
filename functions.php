@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 include('db_connect.php');
 //chreate a msg variabel for messages
 $msg = "";
