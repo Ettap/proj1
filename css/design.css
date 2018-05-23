@@ -33,17 +33,12 @@ html body {
     margin: 10px;
     float: left;
 }
-#login{
-	float: right;
-	position: absolute right;
-	
-}
 #listingsAll{
     border: 1px solid #FFFFFF;
     border-radius: 20px;
     margin: 40px 40px 100px;
     overflow: auto;
-    width: 100% !important;
+    width: 100%;
 }
 #signup{
 	margin: 10px auto;
