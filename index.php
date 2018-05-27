@@ -17,7 +17,39 @@ include('db_connect.php');
   </head>
   <body>
 	  <header></header>
+		<div id="login" class="border-signup col-6">
+			<fieldset>
 
+
+
+          <?php
+if(!isset($_SESSION['user'])){?>
+<form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+	<fieldset>
+    <legend>Login</legend>
+    <label for="username">Username</label>
+    <input type="username" name="username" id="username" required>
+    <label for="password">Password</label>
+    <input type="password" name="password" id="password" required>
+
+    <input type="submit" name="login" value="Logga in!">
+    </fieldset>
+</form>
+<?php } else { ?>
+
+
+	<fieldset>
+    <legend>Logout</legend>
+    <div class="button3">
+    <ul>
+    <li><a href="index.php?logout=yes">Logga ut</a></li>
+    </ul>
+    </div>
+    </fieldset>
+<?php } ?>
+    </fieldset>
+</form>
+</div>
 	<div id="content">
     <h1>Find sexy singles in your area</h1>
   	<!-- body code goes here -->

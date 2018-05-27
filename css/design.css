@@ -3,6 +3,7 @@
 html body {
 	background: #4B4B4B;
 	color: white;
+	width: 100%;
 }
 
 .peoplecontainer{
@@ -39,6 +40,10 @@ html body {
     margin: 40px 40px 100px;
     overflow: auto;
     width: 100%;
+}
+#login{
+	float: right;
+	position: absolute right;
 }
 #signup{
 	margin: 10px auto;

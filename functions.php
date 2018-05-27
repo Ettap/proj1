@@ -58,7 +58,7 @@ if(isset($_POST['insert_new'])) {
     $seeking = $_POST['gender2'];
     $income = $_POST['income'];
     $age = $_POST['Uage'];
-    $currency = $_POST['currency'];
+    $currency = $_POST['select'];
 
 
 $q_user_insert= "INSERT INTO `users`
